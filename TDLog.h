@@ -11,7 +11,7 @@
 #ifdef TD_DEBUG
     #define TDLOG(fmt, ...) {\
         NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);\
-        NSString *logtext = [NSString stringWithFormat:(@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__];\
+        NSString *logtext = [NSString stringWithFormat:(@"%@ %s [Line %d] " fmt),[NSDate date], __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__];\
         [NSObject writeFile:logtext fileName:@"log.txt"];\
     }
 #else
