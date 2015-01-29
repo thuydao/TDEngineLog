@@ -38,6 +38,9 @@ static const void *btnSendQLogVoid                     = &btnSendQLogVoid;
 }
 
 #pragma mark - Utils
+/**
+ *  activeLog
+ */
 - (void)activeLog
 {
     if (!self.twoFingerTapGesture) {
@@ -48,6 +51,9 @@ static const void *btnSendQLogVoid                     = &btnSendQLogVoid;
     }
 }
 
+/**
+ *  deActiveLog
+ */
 - (void)deActiveLog
 {
     [self.view removeGestureRecognizer:self.twoFingerTapGesture];
@@ -56,6 +62,9 @@ static const void *btnSendQLogVoid                     = &btnSendQLogVoid;
 
 
 #pragma mark - Target
+/**
+ *  addLogFuntion
+ */
 - (void)addLogFuntion
 {
     if (!self.btnSendLog) {
@@ -68,6 +77,12 @@ static const void *btnSendQLogVoid                     = &btnSendQLogVoid;
     [self.view addSubview:self.btnSendLog];
 }
 
+
+/**
+ *  sendMailLog
+ *
+ *  @param sender id
+ */
 - (void)sendMailLog:(id)sender
 {
     [self.btnSendLog removeFromSuperview];
@@ -77,7 +92,7 @@ static const void *btnSendQLogVoid                     = &btnSendQLogVoid;
     mailComposer.mailComposeDelegate = (id)self;
     [mailComposer setSubject:[NSString stringWithFormat:@"ReportLog %@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]]];
     
-    NSString *email = emailDevelopment;//[[NSBundle mainBundle] objectForInfoDictionaryKey:@"EmailDevelopment"];
+    NSString *email = EMAIL_DEVELOPMENT;//[[NSBundle mainBundle] objectForInfoDictionaryKey:@"EmailDevelopment"];
     // Set up recipients
     NSArray *toRecipients = [NSArray arrayWithObjects:email, nil];
     [mailComposer setToRecipients:toRecipients];
@@ -94,6 +109,13 @@ static const void *btnSendQLogVoid                     = &btnSendQLogVoid;
     [self presentViewController:mailComposer animated:YES completion:nil];
 }
 
+/**
+ *  mailComposeController
+ *
+ *  @param controller MFMailComposeViewController
+ *  @param result     MFMailComposeResult
+ *  @param error      NSError
+ */
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     [controller dismissViewControllerAnimated:YES completion:nil];
 }

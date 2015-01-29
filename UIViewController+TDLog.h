@@ -13,10 +13,24 @@
 
 @interface UIViewController (TDLog)
 
+/**
+ *  twoFingerTapGesture
+ */
 @property (nonatomic, retain) UITapGestureRecognizer *twoFingerTapGesture;
+
+/**
+ *  btnSendLog
+ */
 @property (nonatomic, retain) UIButton *btnSendLog;
 
+/**
+ *  activeLog
+ */
 - (void)activeLog;
+
+/**
+ *  deActiveLog
+ */
 - (void)deActiveLog;
 
 @end

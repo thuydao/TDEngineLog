@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define emailDevelopment @"daoduythuy@gmail.com"
+#define EMAIL_DEVELOPMENT @"daoduythuy@gmail.com"
 #define FILE_LENGTH 1000000
 #define TD_DEBUG 1
 

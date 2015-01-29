@@ -10,12 +10,34 @@
 
 @interface NSObject (File)
 
+/**
+ *  getDataPath
+ *
+ *  @return NSString
+ */
 + (NSString *)getDataPath;
 
+/**
+ *  writeFile
+ *
+ *  @param content  NSString
+ *  @param fileName NSString
+ */
 + (void)writeFile:(NSString*)content fileName:(NSString *)fileName;
 
+/**
+ *  getPathLog
+ *
+ *  @return NSString
+ */
 + (NSString *)getPathLog;
 
+
+/**
+ *  clearFile
+ *
+ *  @param fileName NSString
+ */
 + (void)clearFile:(NSString *)fileName;
 
 @end
