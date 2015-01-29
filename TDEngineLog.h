@@ -10,6 +10,7 @@
 
 #define emailDevelopment @"daoduythuy@gmail.com"
 #define FILE_LENGTH 1000000
+#define TD_DEBUG 1
 
 #import "NSObject+File.h"
 #import "TDLog.h"

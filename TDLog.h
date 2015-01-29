@@ -8,13 +8,18 @@
 
 #import "NSObject+File.h"
 
-#ifdef DEBUG
-#   define TDLOG(fmt, ...) {\
-    NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);\
-    [NSObject writeFile:[NSString stringWithFormat:(@""fmt,##__VA_ARGS__)] fileName:@"log.txt"];\
+#ifdef TD_DEBUG
+    #define TDLOG(fmt, ...) {\
+        NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);\
+        NSString *logtext = [NSString stringWithFormat:(@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__];\
+        [NSObject writeFile:logtext fileName:@"log.txt"];\
     }
 #else
-#   define TDLOG(...) 
+    #define TDLOG(...)
+//    #define TDLOG(fmt, ...) {\
+//        NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);\
+//        [NSObject writeFile:[NSString stringWithFormat:(@""fmt,##__VA_ARGS__)] fileName:@"log.txt"];\
+//    }
 #endif
 
 // ALog will always output like NSLog

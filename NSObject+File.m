@@ -66,14 +66,13 @@
                                 encoding:NSUTF8StringEncoding
                                    error:nil];
     if (didWrite) {
-        NSLog(@"writed : %@",appFile);
+       // NSLog(@"writed : %@",appFile);
     }
     else
     {
-        NSLog(@"cant write : %@",appFile);
+        //NSLog(@"cant write : %@",appFile);
     }
 }
-
 
 /**
  *  clearFile
@@ -91,11 +90,11 @@
                                  encoding:NSUTF8StringEncoding
                                     error:nil];
     if (didWrite) {
-        NSLog(@"writed : %@",appFile);
+       // NSLog(@"writed : %@",appFile);
     }
     else
     {
-        NSLog(@"cant write : %@",appFile);
+        //NSLog(@"cant write : %@",appFile);
     }
 
 }
